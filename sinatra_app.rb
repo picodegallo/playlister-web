@@ -3,7 +3,6 @@ require './models/artist.rb'
 require './models/genre.rb'
 require './models/song.rb'
 require './models/parse.rb'
-require './models/youtube.rb'
 require 'youtube_search'
 
 module Playlister

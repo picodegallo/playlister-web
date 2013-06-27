@@ -9,6 +9,7 @@ class Song
   
   def initialize
     All << self
+    @artist = artist
   end
 
   def self.all
@@ -34,7 +35,7 @@ class Song
   end
 
   def self.videoid(name)
-    @id = YoutubeSearch.search("#{name} #{@artist}", 'orderby' => 'relevance').first['video_id']
+    @id = YoutubeSearch.search("#{name} #{@artist}", 'genre' => 16, 'orderby' => 'relevance').first['video_id']
   end
 
 end 
