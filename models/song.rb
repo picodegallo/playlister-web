@@ -34,7 +34,7 @@ class Song
   end
 
   def self.videoid(name)
-    @id = YoutubeSearch.search("#{name}", :page => 1).first['video_id']
+    @id = YoutubeSearch.search("#{name} #{@artist}", 'orderby' => 'relevance').first['video_id']
   end
 
 end 
