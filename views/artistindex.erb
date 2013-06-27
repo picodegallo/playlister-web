@@ -1,0 +1,11 @@
+<h1>Artist Library</h1>
+<ol>
+  <% @artist.each do |artist| %>
+    <li><a href="<%= "/artists/#{artist.name}" %>"><%= artist.name %></a> - Songs: <%= artist.songs_count %></li>
+  <% end %>
+</ol>
+
+<p>Browse by:</p>
+<li><a href="<%="/artists"%>">Artists</a></li>
+<li><a href="<%="/songs"%>">Songs</a></li>
+<li><a href="<%="/genres"%>">Genres</a></li>
