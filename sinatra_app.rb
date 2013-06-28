@@ -33,6 +33,16 @@ module Playlister
       erb :'songindex'
     end
 
+    get '/songs/new' do
+      erb :'new'
+    end
+
+    post '/songs' do
+      @song = Song.new_from_params(params)
+      @id = Song.videoid(params[:song_name])
+      erb :'songs'
+    end
+
     get '/songs/:name' do 
       @song = Song.find_by_name(params[:name])
       @id = Song.videoid(params[:name])
@@ -51,6 +61,7 @@ module Playlister
 
       erb :'genres'
     end
+
 
   end
 

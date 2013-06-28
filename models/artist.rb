@@ -42,4 +42,8 @@ class Artist
     return false
   end
 
+  def self.find_or_create_by_name(name)
+   self.find_by_name(name) || self.new.tap{|a| a.name = name}
+  end
+
 end

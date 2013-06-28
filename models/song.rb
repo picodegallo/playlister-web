@@ -34,6 +34,14 @@ class Song
     return false
   end
 
+  def self.new_from_params(params)
+    self.new.tap do |s|
+      s.name = params[:song_name]
+      s.genre = Genre.find_or_create_by_name(params[:genre_name])
+      Artist.find_or_create_by_name(params[:artist_name]).add_song(s)
+    end 
+  end
+
   def self.videoid(name)
     @id = YoutubeSearch.search("#{name} #{@artist}", 'genre' => 16, 'orderby' => 'relevance').first['video_id']
   end
